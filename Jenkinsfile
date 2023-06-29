@@ -24,8 +24,8 @@ pipeline {
         }
         stage ('Publish') {
             steps {
-                // sh './mvn package'
-                bat './mvn package'
+                // sh './mvnw package'
+                bat './mvnw package'
             }
             post {
                 success {
