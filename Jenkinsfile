@@ -9,5 +9,17 @@ pipeline {
                 bat './mvnw clean compile'
             }
         }
+        stage ('Test') {
+            steps {
+                // sh './mvn test'
+                bat './mvnw test'
+            }
+
+            post {
+                always {
+                    junit'**/target/surefire-reports/TEST-*.xml'
+                }
+            }
+        }
     }
 }
